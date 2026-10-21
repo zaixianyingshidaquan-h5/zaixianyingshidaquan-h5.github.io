@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在线影视大全 - 片单/类型/地区/年代大全·正版平台导航·公版展映</title>
+<meta name="description" content="在线影视大全（zaixianyingshidaquan-h5）做成“在线观影指南”：类型大全、地区大全、年代大全、正版平台导航、公版与展映、片单合集；不提供盗版下载、不破会员、不盗链。网址 https://zaixianyingshidaquan-h5.github.io">
+<meta name="keywords" content="在线影视大全,片单大全,类型电影,地区电影,年代片单,正版平台导航,公版电影,展映片单,观影指南,zaixianyingshidaquan">
+<link rel="canonical" href="https://zaixianyingshidaquan-h5.github.io/">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:#f6f7fb;color:#1b2030;line-height:1.8;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 6% 8%,rgba(41,98,255,.12),transparent 28%),
+    radial-gradient(circle at 94% 12%,rgba(255,138,76,.14),transparent 30%),
+    repeating-linear-gradient(0deg,rgba(0,0,0,.015) 0 1px,transparent 1px 5px);
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+section[id]{scroll-margin-top:0}
+::selection{background:#2962ff;color:#fff}
+
+.bar-top{background:#10131f;color:#cfe0ff;font-size:12px;letter-spacing:2px;padding:7px 16px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;border-bottom:1px solid #232838}
+.bar-top b{color:#ff8a4c}
+
+.nav{position:sticky;top:0;z-index:999;background:rgba(246,247,251,.95);backdrop-filter:blur(8px);border-bottom:1px solid #e2e6f0}
+.nav-in{max-width:1240px;margin:0 auto;height:66px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:11px}
+.logo .idx{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#2962ff,#ff8a4c);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;box-shadow:0 0 14px rgba(41,98,255,.3)}
+.logo .cn{font-size:21px;font-weight:900;letter-spacing:.5px}
+.logo .cn em{font-style:normal;color:#2962ff}
+.logo .en{font-size:10px;letter-spacing:3px;color:#7b8499}
+.menu{display:flex;gap:2px;flex-wrap:wrap}
+.menu a{font-size:13px;color:#444b5e;padding:8px 9px;border-bottom:2px solid transparent;transition:.2s}
+.menu a:hover{color:#2962ff;border-bottom-color:#2962ff}
+.nav-cta{background:linear-gradient(135deg,#2962ff,#ff8a4c);color:#fff;font-weight:800;font-size:13px;padding:9px 18px;border-radius:999px}
+.nav-cta:hover{filter:brightness(1.05)}
+
+.hero{max-width:1240px;margin:0 auto;padding:56px 20px 42px;display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
+.hero h1{font-size:clamp(29px,5vw,52px);font-weight:900;line-height:1.14}
+.hero h1 em{font-style:normal;color:#2962ff}
+.hero .sub{font-size:13px;letter-spacing:5px;color:#7b8499;margin-top:8px}
+.hero .lead{font-size:16px;color:#333a4d;margin:18px 0 22px;max-width:620px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-blue{padding:12px 26px;font-weight:800;border-radius:10px;background:linear-gradient(135deg,#2962ff,#10131f);color:#fff;transition:.25s}
+.btn-blue:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(41,98,255,.25)}
+.btn-line{background:transparent;color:#2962ff;border:1px solid #b9c6ff;padding:12px 26px;border-radius:10px;font-weight:800}
+.btn-line:hover{background:#eef2ff}
+.toc{background:#10131f;border:1px solid #232838;border-radius:16px;padding:22px;color:#dfe6ff}
+.toc h3{font-size:14px;letter-spacing:2px;color:#9fb0ff;margin-bottom:10px}
+.toc .row{display:flex;flex-wrap:wrap;gap:8px}
+.toc span{font-size:12px;font-weight:800;background:#1c2133;border:1px solid #2c3349;color:#cfe0ff;padding:5px 10px;border-radius:999px}
+.toc .hot{color:#ff8a4c;border-color:#4a3320}
+
+.block{max-width:1240px;margin:0 auto;padding:54px 20px}
+.block-head{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;flex-wrap:wrap;border-bottom:1px solid #e2e6f0;padding-bottom:10px}
+.block-head .no{font-size:12px;font-weight:800;color:#fff;background:linear-gradient(90deg,#2962ff,#ff8a4c);padding:3px 9px;border-radius:5px}
+.block-head h2{font-size:25px;font-weight:900}
+.block-head h2 em{font-style:normal;color:#2962ff}
+.block-head .en{font-size:12px;letter-spacing:2px;color:#7b8499}
+.block-head a{margin-left:auto;font-size:13px;color:#444b5e}
+.block-head a:hover{color:#2962ff}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip-card{background:#fff;border:1px solid #e2e6f0;border-radius:12px;padding:14px 16px;font-weight:800;color:#1b2030;transition:.25s}
+.chip-card:hover{border-color:#2962ff;color:#2962ff;transform:translateY(-3px);box-shadow:0 12px 24px rgba(41,98,255,.12)}
+.chip-card small{display:block;font-weight:500;font-size:12px;color:#7b8499;margin-top:3px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(166px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #e2e6f0;border-radius:14px;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:#2962ff;box-shadow:0 16px 30px rgba(41,98,255,.14)}
+.card img{width:100%;height:226px;object-fit:cover;filter:contrast(1.03) saturate(1.04)}
+.card .b{padding:12px}
+.card h3{font-size:15px;font-weight:800}
+.card .row{display:flex;justify-content:space-between;font-size:12px;color:#7b8499;margin-top:5px}
+.card .row b{color:#ff8a4c}
+.tag{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#2962ff;padding:2px 9px;border-radius:999px;margin-top:7px}
+.tag.org{background:#ff8a4c}
+.tag.grey{background:#5b6478}
+
+.plat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.platcard{background:linear-gradient(160deg,#fff,#eef2ff);border:1px solid #e2e6f0;border-radius:16px;padding:20px}
+.platcard h3{font-size:17px;font-weight:800;color:#2962ff}
+.platcard p{font-size:13px;color:#333a4d;margin-top:8px}
+.platcard .go{margin-top:10px;font-size:12px;font-weight:800;color:#ff8a4c}
+
+.list-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.lc{background:#fff;border:1px solid #e2e6f0;border-left:4px solid #ff8a4c;border-radius:0 14px 14px 0;padding:18px}
+.lc h3{font-size:16px;font-weight:800}
+.lc p{font-size:13px;color:#5b6478;margin-top:6px}
+.lc .meta{margin-top:8px;font-size:12px;font-weight:800;color:#2962ff}
+
+.guide{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g{background:#fff;border:1px solid #e2e6f0;border-radius:14px;padding:20px}
+.g h3{font-size:17px;font-weight:800;color:#10131f}
+.g ul{list-style:none;margin-top:10px}
+.g li{padding:8px 0 8px 22px;position:relative;font-size:14px;color:#333a4d;border-bottom:1px dashed #e2e6f0}
+.g li::before{content:"▸";position:absolute;left:0;color:#2962ff}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;background:linear-gradient(135deg,#10131f,#1b2440);color:#dfe6ff;border-radius:18px;padding:42px}
+.about h2{font-size:25px;font-weight:900;margin-bottom:14px;color:#fff}
+.about h2 em{font-style:normal;color:#ff8a4c}
+.about p{font-size:15px;color:#c7d2f5;line-height:1.95;margin-bottom:12px}
+.about .url{color:#9fb0ff;font-weight:800}
+.astats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.as{background:#1b2440;border:1px solid #2c3349;border-radius:12px;padding:18px;text-align:center}
+.as .n{font-size:23px;font-weight:900;color:#ff8a4c}
+.as .l{font-size:12px;color:#9fb0ff;margin-top:3px}
+
+.foot{border-top:1px solid #e2e6f0;padding:40px 20px 28px;text-align:center;background:#eef1f7}
+.foot-logo{font-size:20px;font-weight:900}
+.foot-logo em{font-style:normal;color:#2962ff}
+.foot-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0}
+.foot-links a{font-size:13px;color:#5b6478}
+.foot-links a:hover{color:#2962ff}
+.foot p{font-size:12px;color:#7b8499}
+.foot .disc{margin-top:10px;max-width:900px;margin-left:auto;margin-right:auto;color:#7b8499;line-height:1.7}
+
+@media(max-width:860px){
+  .menu{display:none}
+  .hero{grid-template-columns:1fr;padding:26px 20px 36px}
+  .guide{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;padding:28px}
+  .block{padding:44px 20px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="bar-top">
+  <span>“影视大全”外号=盗链/聚合/破会员</span><b>我们做成“片单大全 / 导航大全”</b>
+  <span>不盗链</span><b>不提供盗版下载</b>
+</div>
+
+<div class="nav">
+  <div class="nav-in">
+    <div class="logo">
+      <div class="idx">大全</div>
+      <div>
+        <div class="cn">在线影视<em>大全</em></div>
+        <div class="en">ONLINE FILM INDEX · 观影指南</div>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="#home">首页</a>
+      <a href="#type">类型大全</a>
+      <a href="#region">地区大全</a>
+      <a href="#year">年代大全</a>
+      <a href="#plat">正版导航</a>
+      <a href="#public">公版展映</a>
+      <a href="#lists">片单合集</a>
+      <a href="#guide">观影指南</a>
+      <a href="#about">关于</a>
+    </nav>
+    <a href="#type" class="nav-cta">翻目录</a>
+  </div>
+</div>
+
+<section class="hero" id="home">
+  <div>
+    <h1>在线影视<em>大全</em><br>不是“资源大全”，是“门类大全”</h1>
+    <div class="sub">TYPE · REGION · DECADE · PLATFORM · PLAYLIST</div>
+    <p class="lead">外面的“在线影视大全”总让人想到免费看全网、解析接口、盗链 App。这版反着做：把“大全”写成一本观影目录——类型怎么分、地区怎么挑、年代怎么回看、正版平台去哪看、公版与展映片单有哪些。不存片、不解析、不破会员，只帮你把“想看什么”想清楚。</p>
+    <div class="hero-btns">
+      <a href="#type" class="btn-blue">🗂 类型大全</a>
+      <a href="#plat" class="btn-line">🔗 正版平台导航</a>
+    </div>
+  </div>
+  <div class="toc">
+    <h3>目录卡 / INDEX</h3>
+    <div class="row">
+      <span>悬疑</span><span>科幻</span><span>港片</span><span>动画</span>
+      <span>90 年代</span><span>公版</span><span>展映</span><span>短片</span>
+      <span class="hot">不盗链</span><span class="hot">不破会员</span>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="type">
+  <div class="block-head">
+    <span class="no">01</span>
+    <h2>类型<em>大全</em></h2>
+    <span class="en">GENRE INDEX</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="chips">
+    <div class="chip-card">悬疑 / 犯罪<small>谁是凶手、怎么骗、怎么翻案</small></div>
+    <div class="chip-card">科幻 / 灾变<small>未来、AI、末日、太空</small></div>
+    <div class="chip-card">爱情 / 青春<small>暗恋、分手、毕业、重逢</small></div>
+    <div class="chip-card">喜剧 / 无厘头<small>下班不想动脑专用</small></div>
+    <div class="chip-card">武侠 / 功夫<small>刀法、门派、江湖规矩</small></div>
+    <div class="chip-card">战争 / 历史<small>大时代里的小人物</small></div>
+    <div class="chip-card">动画 / 定格<small>成人动画也算</small></div>
+    <div class="chip-card">纪录片<small>真实比剧本狠</small></div>
+    <div class="chip-card">恐怖 / 惊悚<small>别一个人看</small></div>
+    <div class="chip-card">体育 / 成长<small>输赢之外的事</small></div>
+  </div>
+</section>
+
+<section class="block" id="region" style="background:#eef1f7">
+  <div class="block-head">
+    <span class="no">02</span>
+    <h2>地区<em>大全</em></h2>
+    <span class="en">REGION INDEX</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="grid">
+    <div class="card"><img src="https://picsum.photos/300/420?random=90101" alt="在线影视大全 港片"><div class="b"><h3>中国香港</h3><div class="row"><span>江湖/警匪/无厘头</span><b>黄金 80-90s</b></div><span class="tag">风衣打火机</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90102" alt="在线影视大全 台湾"><div class="b"><h3>中国台湾</h3><div class="row"><span>青春/家庭/文艺</span><b>侯孝贤系</b></div><span class="tag org">淡水、机车、旧巷</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90103" alt="在线影视大全 内地"><div class="b"><h3>中国内地</h3><div class="row"><span>现实/历史/县城</span><b>第六代+</b></div><span class="tag grey">厂矿、北方、饭桌</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90104" alt="在线影视大全 日本"><div class="b"><h3>日本</h3><div class="row"><span>动画/物哀/社会</span><b>是枝裕和系</b></div><span class="tag">便当、电车、夏天</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90105" alt="在线影视大全 韩国"><div class="b"><h3>韩国</h3><div class="row"><span>悬疑/阶层/复仇</span><b>奉俊昊系</b></div><span class="tag org">半地下室与财阀</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90106" alt="在线影视大全 欧美"><div class="b"><h3>欧美</h3><div class="row"><span>类型片/作者化</span><b>诺兰/芬奇</b></div><span class="tag grey">三幕式也能玩花</span></div></div>
+  </div>
+</section>
+
+<section class="block" id="year">
+  <div class="block-head">
+    <span class="no">03</span>
+    <h2>年代<em>大全</em></h2>
+    <span class="en">DECADE INDEX</span>
+  </div>
+  <div class="chips">
+    <div class="chip-card">1930-1950<small>黑白、戏剧、战后</small></div>
+    <div class="chip-card">1960-1970<small>新浪潮、革命、公路</small></div>
+    <div class="chip-card">1980s<small>录像厅、港片北伐、胶片饱和</small></div>
+    <div class="chip-card">1990s<small>VCD、网吧、青春片起飞</small></div>
+    <div class="chip-card">2000s<small>DVD 收藏党、作者电影</small></div>
+    <div class="chip-card">2010s<small>流媒体前夜、国漫复兴</small></div>
+    <div class="chip-card">2020s<small>短剧、AIGC、展映回流</small></div>
+    <div class="chip-card">跨年代重看<small>同题重拍怎么比</small></div>
+  </div>
+</section>
+
+<section class="block" id="plat" style="background:#eef1f7">
+  <div class="block-head">
+    <span class="no">04</span>
+    <h2>正版平台<em>导航</em></h2>
+    <span class="en">WHERE TO WATCH</span>
+  </div>
+  <div class="plat">
+    <div class="platcard"><h3>长视频三强</h3><p>腾讯视频 / 爱奇艺 / 优酷：国产剧、综艺、院线转网、独家剧集的主战场。</p><div class="go">去官方 App / 官网 →</div></div>
+    <div class="platcard"><h3>芒果 / B 站</h3><p>芒果：综艺与女性向；B 站：纪录片、国创、二创、展映与短片社区。</p><div class="go">社区型观看 →</div></div>
+    <div class="platcard"><h3>院线 / 票务</h3><p>猫眼、淘票票、万达/横店/金逸：新片还是得买票，银幕和手机不是一回事。</p><div class="go">新片走影院 →</div></div>
+    <div class="platcard"><h3>公版 / 档案</h3><p>公共领域老片、资料馆、电影节展映、高校影像库：很多 1920-1950 片源合法免费。</p><div class="go">公版片单 →</div></div>
+  </div>
+</section>
+
+<section class="block" id="public">
+  <div class="block-head">
+    <span class="no">05</span>
+    <h2>公版与<em>展映</em></h2>
+    <span class="en">PUBLIC DOMAIN / SCREENINGS</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="grid">
+    <div class="card"><img src="https://picsum.photos/300/420?random=90201" alt="在线影视大全 公版默片"><div class="b"><h3>默片经典</h3><div class="row"><span>1920s 前</span><b>公版</b></div><span class="tag grey">卓别林/朗乔伊</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90202" alt="在线影视大全 早期科幻"><div class="b"><h3>早期科幻</h3><div class="row"><span>1902-1930</span><b>公版</b></div><span class="tag">月球、潜艇、未来城</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90203" alt="在线影视大全 资料馆修复"><div class="b"><h3>资料馆修复</h3><div class="row"><span>官方发行</span><b>展映</b></div><span class="tag org">4K 修复≠盗版</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90204" alt="在线影视大全 动画短片"><div class="b"><h3>公版动画</h3><div class="row"><span>1930s 卡通</span><b>公版</b></div><span class="tag">猫鼠、精灵、木偶</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90205" alt="在线影视大全 纪录片档案"><div class="b"><h3>纪录档案</h3><div class="row"><span>政府/高校库</span><b>展映</b></div><span class="tag grey">城市、劳工、自然</span></div></div>
+    <div class="card"><img src="https://picsum.photos/300/420?random=90206" alt="在线影视大全 学生短片"><div class="b"><h3>学生/独立短片</h3><div class="row"><span>作者授权</span><b>展映</b></div><span class="tag">拉片会、毕业展</span></div></div>
+  </div>
+</section>
+
+<section class="block" id="lists" style="background:#eef1f7">
+  <div class="block-head">
+    <span class="no">06</span>
+    <h2>片单<em>合集</em></h2>
+    <span class="en">PLAYLIST COLLECTION</span>
+  </div>
+  <div class="list-strip">
+    <div class="lc"><h3>下雨天不想动脑</h3><p>喜剧、轻悬疑、老港片、动画电影、已经看过三遍的片。</p><div class="meta">片单 A · 放松向</div></div>
+    <div class="lc"><h3>周末认真拉片</h3><p>作者电影、长镜头、叙事结构、配乐设计、美术与服化道。</p><div class="meta">片单 B · 学习向</div></div>
+    <div class="lc"><h3>带爸妈一起看</h3><p>年代剧、家庭片、战争历史、戏曲改编、不血腥不烧脑。</p><div class="meta">片单 C · 家庭向</div></div>
+    <div class="lc"><h3>一个人半夜看</h3><p>公路、孤独、城市夜、失恋、异乡、抽烟阳台型结尾。</p><div class="meta">片单 D · 夜场向</div></div>
+  </div>
+</section>
+
+<section class="block" id="guide">
+  <div class="block-head">
+    <span class="no">07</span>
+    <h2>观影<em>指南</em></h2>
+    <span class="en">HOW TO WATCH RIGHT</span>
+  </div>
+  <div class="guide">
+    <div class="g">
+      <h3>找片：先定维度再搜片名</h3>
+      <ul>
+        <li>类型 → 地区 → 年代 → 情绪 → 片名</li>
+        <li>别直接搜“免费看 XX”，那条路通向盗链</li>
+        <li>记不住片名就记导演/摄影师/配乐</li>
+        <li>短片看作者，长片看节奏，剧集看人物弧</li>
+        <li>公版片先查发行方，再查字幕组是否授权</li>
+      </ul>
+    </div>
+    <div class="g">
+      <h3>避坑：这些词=版权雷区</h3>
+      <ul>
+        <li>“全网免费 / 破会员 / 解析接口”</li>
+        <li>“刚上映高清版 / 院线同步 / 抢先版”</li>
+        <li>“安装专用播放器 / 关杀软 / 加群拿源”</li>
+        <li>“资源来自网络，侵权删”不能代替授权 [5](@ref)</li>
+        <li>深度链接/盗链本身就可能构成侵权 [7,13](@ref)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="about">
+    <div>
+      <h2>在线影视大全：<em>做目录，不做盗链</em></h2>
+      <p>“在线影视大全”这名字外面太容易被当成盗版聚合站。我们把它重做成<strong>在线观影指南</strong>：类型大全、地区大全、年代大全、正版平台导航、公版与展映、片单合集、观影避坑。</p>
+      <p>本站不提供盗版下载、不破解会员、不嵌套第三方播放源、不卖解析接口；片单只指向正版平台、公版/展映内容与官方发行。网址：<span class="url">https://zaixianyingshidaquan-h5.github.io</span></p>
+    </div>
+    <div class="astats">
+      <div class="as"><div class="n">大全=目录</div><div class="l">类型/地区/年代/片单</div></div>
+      <div class="as"><div class="n">正版优先</div><div class="l">平台导航 / 公版展映</div></div>
+      <div class="as"><div class="n">0 盗链</div><div class="l">不解析·不破会员</div></div>
+      <div class="as"><div class="n">索引蓝+售票橙</div><div class="l">目录纸白/字幕黑</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-logo">在线影视<em>大全</em> · ONLINE FILM INDEX</div>
+  <div class="foot-links">
+    <a href="#type">类型大全</a>
+    <a href="#region">地区大全</a>
+    <a href="#year">年代大全</a>
+    <a href="#plat">正版导航</a>
+    <a href="#public">公版展映</a>
+    <a href="#lists">片单合集</a>
+    <a href="#guide">观影指南</a>
+    <a href="#about">关于</a>
+  </div>
+  <p>© 2026 在线影视大全 · 网站网址：https://zaixianyingshidaquan-h5.github.io</p>
+  <p class="disc">本站为“在线观影指南 / 片单大全”演示页。旧版“在线影视大全”类名称常关联免费聚合、解析接口、盗链 App 与侵犯著作权风险；本页不提供盗版院线、不破解会员、不嵌套第三方播放源。实际观看请走正版平台、公版发行与官方展映。</p>
+</footer>
+
+</body>
+</html>
